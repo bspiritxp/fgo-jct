@@ -1,0 +1,17 @@
+[
+  {
+    "id": "demo-name-1",
+    "nameZh": "示例从者",
+    "nameJa": "サンプルサーヴァント"
+  },
+  {
+    "id": "demo-name-2",
+    "nameZh": "示例从者",
+    "nameJa": "別のサンプル"
+  },
+  {
+    "id": "demo-name-3",
+    "nameZh": "测试从者乙",
+    "nameJa": "テスト乙"
+  }
+]

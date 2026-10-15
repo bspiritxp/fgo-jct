@@ -1,0 +1,44 @@
+{
+  "protocolVersion": 1,
+  "mode": "demo",
+  "devices": [
+    {
+      "serial": "demo:mumu",
+      "label": "MuMu 演示设备",
+      "status": "ready"
+    }
+  ],
+  "servants": [
+    {
+      "id": "demo-owned-1",
+      "nameId": "demo-name-1",
+      "displayName": "示例从者 · 持有 A",
+      "level": 80,
+      "npLevel": 2,
+      "ascensionStage": 4,
+      "skillLevels": [
+        10,
+        6,
+        6
+      ]
+    },
+    {
+      "id": "demo-owned-2",
+      "nameId": "demo-name-1",
+      "displayName": "示例从者 · 持有 B",
+      "level": 1,
+      "npLevel": 1,
+      "ascensionStage": 0,
+      "skillLevels": [
+        1,
+        null,
+        null
+      ]
+    }
+  ],
+  "agent": {
+    "label": "外部 Agent 尚未接入",
+    "available": false,
+    "detail": "预留 piagent / Codex 适配接口，当前不会调用任何模型服务。"
+  }
+}

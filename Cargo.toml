@@ -1,0 +1,15 @@
+[workspace]
+members = ["crates/fgo-core", "crates/fgo-adapters", "apps/desktop/src-tauri"]
+default-members = ["crates/fgo-core", "crates/fgo-adapters"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "UNLICENSED"
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+fgo-core = { path = "crates/fgo-core" }
+fgo-adapters = { path = "crates/fgo-adapters" }

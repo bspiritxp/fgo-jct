@@ -1,0 +1,17 @@
+[package]
+name = "fgo-desktop"
+version.workspace = true
+edition.workspace = true
+publish = false
+
+[lib]
+name = "fgo_desktop"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+fgo-core.workspace = true
+fgo-adapters.workspace = true

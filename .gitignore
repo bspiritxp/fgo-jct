@@ -147,3 +147,31 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Rust / optional recognition runtime
+target/
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# Local application data (keep source fixtures separate)
+/runtime-data/
+/local-data/
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3-wal
+*.sqlite3-shm
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Tauri generated capability schemas
+/apps/desktop/src-tauri/gen/
+
+# Browser test artifacts
+/test-results/
+/playwright-report/
