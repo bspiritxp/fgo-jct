@@ -8,4 +8,4 @@ Tauri 2 + Vue 3 + TypeScript，面向 Windows/macOS。
 - `src/shared/`：通用样式与错误展示。
 - `src-tauri/src/`：Rust 宿主组合与薄命令层，业务规则位于独立核心 crate。
 
-根目录运行 `npm run dev` 启动浏览器演示，`npm run desktop:dev` 启动 Tauri。当前两者均使用明确标注的虚构演示数据。详见 [开发文档](../../docs/development.md)。
+根目录运行 `pnpm dev` 启动浏览器演示，`pnpm desktop:dev` 启动 Tauri。当前两者均使用明确标注的虚构演示数据。详见 [开发文档](../../docs/development.md)。

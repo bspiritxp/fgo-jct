@@ -125,7 +125,7 @@
 
 演示资料位于 `apps/desktop/src/preview/data.ts`，与正式数据契约/仓储隔离。Naive UI 主题位于 `app/theme/`，通用素材占位位于 `shared/ui/`，六页各自位于对应 feature 目录。保存、设备检测与采集不执行真实操作。
 
-运行 `npm run dev` 后访问 `http://localhost:1420`。浏览器交互测试见 `tests/ui/preview.spec.ts`，覆盖页面导航、搜索、详情抽屉、编队选人和窄窗口无横向溢出。
+运行 `pnpm dev` 后访问 `http://localhost:1420`。浏览器交互测试见 `tests/ui/preview.spec.ts`，覆盖页面导航、搜索、详情抽屉、编队选人和窄窗口无横向溢出。
 
 ### 从者卡片尺寸调整
 

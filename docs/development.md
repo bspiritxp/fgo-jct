@@ -8,8 +8,11 @@
 
 ## 工具链与启动
 
-- Node.js 22.12+（或更新的受支持版本），使用 npm workspaces。
-- Rust stable；`Cargo.lock` 与 `package-lock.json` 均提交，复现依赖。
+项目使用 pnpm 10.20.0（由 packageManager 固定），包范围由根目录 pnpm-workspace.yaml 定义。已安装 Corepack 时可执行 `corepack enable`；也可使用 `npm install -g pnpm@10.20.0` 安装 pnpm。原 npm 用户首次切换建议删除旧 node_modules 后重新安装；不要继续生成 package-lock.json。
+
+
+- Node.js 22.12+（或更新的受支持版本），使用 pnpm workspaces。
+- Rust stable；`Cargo.lock` 与 `pnpm-lock.yaml` 均提交，复现依赖。
 - Windows：Rust MSVC 工具链、Visual Studio C++ Build Tools、WebView2 Runtime。
 - macOS：Xcode Command Line Tools 与 Rust。两平台实际桌面构建需分别验证。
 - Linux 仅作为开发检查环境时，核心 crate 与浏览器演示不需要 GTK；运行 Tauri 需安装 WebKitGTK 4.1 等系统依赖。
@@ -17,17 +20,17 @@
 在项目根目录执行：
 
 ```sh
-npm ci
-npm run dev
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
 浏览器访问 `http://127.0.0.1:1420`。具备桌面依赖后执行：
 
 ```sh
-npm run desktop:dev
+pnpm desktop:dev
 ```
 
-Tauri CLI 会自动启动 Vite，不必同时手动运行第二个 Vite。`npm run build` 产出 `apps/desktop/dist`；`npm run desktop:build` 编译桌面可执行文件，当前 `bundle.active=false`，尚不生成安装包。发布标识、签名、安装包与正式图标后续配置。
+Tauri CLI 会自动启动 Vite，不必同时手动运行第二个 Vite。`pnpm build` 产出 `apps/desktop/dist`；`pnpm desktop:build` 编译桌面可执行文件，当前 `bundle.active=false`，尚不生成安装包。发布标识、签名、安装包与正式图标后续配置。
 
 ## 依赖与职责
 
@@ -63,7 +66,7 @@ IPC 方法为 `load_workspace` 与 `search_names`，响应含 `protocolVersion: 
 ## 检查
 
 ```sh
-npm run check
+pnpm check
 cargo test --locked -p fgo-core -p fgo-adapters
 cargo fmt --all --check
 cargo clippy --locked -p fgo-core -p fgo-adapters --all-targets -- -D warnings
@@ -78,7 +81,7 @@ cargo check --locked -p fgo-desktop
 
 ## 六页 UI 预览验证
 
-已引入 Naive UI 与 @lucide/vue，六页布局与抽屉/弹窗使用组件库，截图素材统一使用占位图形。`npm run check` 通过；真实 Chromium 中的 `CHROMIUM_PATH=/usr/bin/chromium npm run test:ui` 通过（其他环境可安装 Playwright Chromium 后直接运行 `npm run test:ui`）。预览数据不会发送到真实仓储或模型。
+已引入 Naive UI 与 @lucide/vue，六页布局与抽屉/弹窗使用组件库，截图素材统一使用占位图形。`pnpm check` 通过；真实 Chromium 中的 `CHROMIUM_PATH=/usr/bin/chromium pnpm test:ui` 通过（其他环境可安装 Playwright Chromium 后直接运行 `pnpm test:ui`）。预览数据不会发送到真实仓储或模型。
 
 ## 云环境预览地址说明
 

@@ -10,7 +10,7 @@
     "tauri": "tauri"
   },
   "dependencies": {
-    "@fgo/contracts": "0.1.0",
+    "@fgo/contracts": "workspace:*",
     "@lucide/vue": "^1.57.0",
     "@tauri-apps/api": "^2.8.0",
     "naive-ui": "^2.45.3",

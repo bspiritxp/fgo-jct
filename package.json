@@ -3,21 +3,17 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "workspaces": [
-    "apps/desktop",
-    "packages/contracts"
-  ],
   "engines": {
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "npm run dev --workspace @fgo/desktop",
-    "build": "npm run build --workspace @fgo/desktop",
-    "typecheck": "npm run typecheck --workspaces --if-present",
+    "dev": "pnpm --filter @fgo/desktop dev",
+    "build": "pnpm --filter @fgo/desktop build",
+    "typecheck": "pnpm -r --if-present typecheck",
     "test": "vitest run",
-    "check": "npm run typecheck && npm test && npm run build",
-    "desktop:dev": "npm run tauri --workspace @fgo/desktop -- dev",
-    "desktop:build": "npm run tauri --workspace @fgo/desktop -- build",
+    "check": "pnpm typecheck && pnpm test && pnpm build",
+    "desktop:dev": "pnpm --filter @fgo/desktop tauri dev",
+    "desktop:build": "pnpm --filter @fgo/desktop tauri build",
     "rust:test": "cargo test -p fgo-core -p fgo-adapters",
     "test:ui": "playwright test"
   },
@@ -27,6 +23,10 @@
     "jsdom": "^26.1.0",
     "prettier": "^3.9.10",
     "typescript": "~5.9.3",
-    "vitest": "^3.2.4"
-  }
+    "vitest": "^3.2.4",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "vite": "^7.1.7",
+    "vue": "^3.5.22"
+  },
+  "packageManager": "pnpm@10.20.0"
 }

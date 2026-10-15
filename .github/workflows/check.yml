@@ -12,15 +12,16 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
+          cache: pnpm
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt, clippy
-      - run: npm ci
-      - run: npm run check
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check
       - run: cargo fmt --all --check
       - run: cargo test --locked -p fgo-core -p fgo-adapters
       - run: cargo clippy --locked -p fgo-core -p fgo-adapters --all-targets -- -D warnings
